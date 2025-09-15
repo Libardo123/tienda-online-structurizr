@@ -28,7 +28,8 @@ Estos diagramas han sido exportados de Structurizr y se incluyen como imágenes 
 ![Diagrama de Componentes](assets/diagrams/structurizr-106127-Componentes%20-%20Servicio%20de%20Recomendaciones.png)
 
 ### 4. Diagrama de Código (C4)
-![Diagrama de Código](assets/diagrams/structurizr-106127-Código - Gestión de Usuarios.png)
+![Diagrama de Código](assets/diagrams/structurizr-106127-C%C3%B3digo%20-%20Gesti%C3%B3n%20de%20Usuarios.png)
+
 
 ---
 
