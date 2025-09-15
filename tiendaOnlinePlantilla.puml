@@ -1,0 +1,53 @@
+@startuml(id=Contexto)
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+title Tienda Online - System Context
+caption Vista de contexto de la tienda online.
+
+Person(2, "Administrador", "Gestiona catálogo, pedidos y usuarios.")
+Person(1, "Cliente", "Usuario que compra ropa en la tienda online.")
+System(6, "Pasarela de Pago", "Procesa pagos con tarjeta de crédito y débito.")
+System(8, "Proveedor de Notificaciones", "Envío de emails y SMS transaccionales.")
+System(7, "Servicio de Envío", "Gestiona la logística y tracking de pedidos.")
+System(3, "Tienda Online", "Plataforma web y móvil para la venta de ropa.")
+Rel_D(2, 3, "Administra productos, usuarios y pedidos.", "HTTPS")
+Rel_D(1, 3, "Compra ropa, consulta pedidos y actualiza su perfil.", "HTTPS")
+Rel_D(3, 6, "Procesa pagos de clientes con API Key", "API REST (HTTPS)")
+Rel_D(3, 8, "Envía emails y SMS de confirmación", "API REST (HTTPS)")
+Rel_D(3, 7, "Solicita envíos y obtiene tracking de pedidos", "API REST (HTTPS, Auth Token)")
+@enduml@startuml(id=Contenedores)
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+!includeurl https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+LAYOUT_WITH_LEGEND()
+
+title Tienda Online - Containers
+caption Vista de contenedores de la tienda online.
+
+Person(2, "Administrador", "Gestiona catálogo, pedidos y usuarios.")
+Person(1, "Cliente", "Usuario que compra ropa en la tienda online.")
+System_Boundary(3_boundary, Tienda Online) {
+  Container(14, "API Backend", "Java Spring Boot", "Gestiona la lógica de negocio de la tienda y expone APIs REST.")
+  Container(13, "Aplicación Móvil", "Flutter / Kotlin / Swift", "Permite a los clientes comprar ropa desde su celular.")
+  Container(12, "Aplicación Web", "Angular / React", "Permite a los clientes comprar ropa mediante navegador.")
+  Container(15, "Base de Datos", "MySQL", "Almacena usuarios, productos y pedidos.")
+  Container(16, "Proveedor de Identidad", "Keycloak / Auth0", "Gestiona la autenticación de clientes y administradores con JWT y API Key.")
+  Container(18, "Servicio de Análisis", "Apache Kafka", "Recolecta y analiza datos de uso")
+  Container(17, "Servicio de Recomendaciones", "Python Flask", "Sugiere productos a los clientes")
+}
+Rel_D(14, 15, "Lee y escribe datos", "JDBC")
+Rel_D(14, 16, "Validación de credenciales con API Key y JWT", "OpenID Connect")
+Rel_D(2, 12, "Administra catálogo y usuarios", "HTTPS")
+Rel_D(13, 14, "Consume servicios REST", "JSON/HTTPS")
+Rel_D(12, 14, "Consume servicios REST", "JSON/HTTPS")
+Rel_D(12, 17, "Solicita recomendaciones")
+Rel_D(1, 13, "Compra ropa", "HTTPS")
+Rel_D(1, 12, "Compra ropa", "HTTPS")
+Rel_D(18, 15, "Lee datos para análisis")
+Rel_D(17, 15, "Lee datos de productos")
+@enduml
