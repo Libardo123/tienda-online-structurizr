@@ -30,7 +30,15 @@ Estos diagramas han sido exportados de Structurizr y se incluyen como imágenes 
 ### 4. Diagrama de Código (C4)
 ![Diagrama de Código](assets/diagrams/structurizr-106127-C%C3%B3digo%20-%20Gesti%C3%B3n%20de%20Usuarios.png)
 
+---
 
+## Diagramas Interactivos en Structurizr
+
+Para una vista más detallada y completamente interactiva de la arquitectura, puedes acceder directamente a los modelos en la plataforma de Structurizr a través de los siguientes enlaces:
+
+* **Modelo de Arquitectura Completo:** [Ver en Structurizr](https://structurizr.com/share/106127/fe8e4004-a2c4-4816-9ab6-15152b12bd5c)
+* **Espacio de Trabajo de Structurizr:** [Ir al Workspace](https://structurizr.com/share/106127)
+  
 ---
 
 ## Estructura del Repositorio
