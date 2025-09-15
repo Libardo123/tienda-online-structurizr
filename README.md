@@ -25,7 +25,7 @@ Estos diagramas han sido exportados de Structurizr y se incluyen como imágenes 
 ![Diagrama de Contenedores](assets/diagrams/structurizr-106127-Contenedores.png)
 
 ### 3. Diagrama de Componentes (C3)
-![Diagrama de Componentes](assets/diagrams/structurizr-106127-Componentes - Servicio de Recomendaciones.png)
+![Diagrama de Componentes](assets/diagrams/structurizr-106127-Componentes%20-%20Servicio%20de%20Recomendaciones.png)
 
 ### 4. Diagrama de Código (C4)
 ![Diagrama de Código](assets/diagrams/structurizr-106127-Código - Gestión de Usuarios.png)
